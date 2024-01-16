@@ -1,0 +1,1164 @@
+<?xml version="1.0" ?>
+
+<robot
+  name="arm_assm" xmlns:xacro="http://ros.org/wiki/xacro">
+
+ 
+<link name="dummy_link"></link>
+
+
+<joint name="dummy_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0" />
+    <parent link="dummy_link"/>
+    <child link="base_link"/>
+</joint>
+
+
+
+<joint name="dummy_joint_2" type="fixed">
+    <origin rpy="0 0 0" xyz="-0.3 0 -0.6" />
+    <parent link="dummy_link"/>
+    <child link="rover_link"/>
+</joint>
+
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-1.16898314431282E-17 0.0246663904136742 -2.20926297305585E-17"
+        rpy="0 0 0" />
+      <mass
+        value="1.64532075864635" />
+      <inertia
+        ixx="0.00471040512909721"
+        ixy="-1.575622405618E-19"
+        ixz="-6.88214269644119E-19"
+        iyy="0.00852722796961167"
+        iyz="-3.13183948941274E-19"
+        izz="0.00471040512909721" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_assm/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_assm/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="motor_1">
+    <inertial>
+      <origin
+        xyz="0.0197589805657042 0.100000000002137 1.08683469154557E-09"
+        rpy="0 0 0" />
+      <mass
+        value="4.50292366955068" />
+      <inertia
+        ixx="0.0194849736698928"
+        ixy="-1.42221514786599E-12"
+        ixz="-3.38003199905241E-09"
+        iyy="0.0181382205751192"
+        iyz="1.51648171559924E-09"
+        izz="0.0244008970807546" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_assm/meshes/motor_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_assm/meshes/motor_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_1"
+    type="revolute">
+    <origin
+      xyz="0 0 0.06"
+      rpy="1.5708 0 1.5716" />
+    <parent
+      link="base_link" />
+    <child
+      link="motor_1" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-6.14"
+      upper="6.14"
+      effort="0.0"
+      velocity="3.2" />
+  </joint>
+  <link
+    name="connector_1">
+    <inertial>
+      <origin
+        xyz="0.313119444035058 0.110304452172137 -1.9126070643902E-08"
+        rpy="0 0 0" />
+      <mass
+        value="12.8402337197017" />
+      <inertia
+        ixx="0.0421704102972762"
+        ixy="-1.05916142578512E-11"
+        ixz="-5.54192514676755E-09"
+        iyy="0.118368247816807"
+        iyz="3.66110869310707E-05"
+        izz="0.132138508946554" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_assm/meshes/connector_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_assm/meshes/connector_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="connection_1"
+    type="revolute">
+    <origin
+      xyz="0.1097 0.1 0"
+      rpy="3.1416 0 1.5708" />
+    <parent
+      link="motor_1" />
+    <child
+      link="connector_1" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-6.14"
+      upper="6.14"
+      effort="0.0"
+      velocity="3.2" />
+  </joint>
+  <link
+    name="motor_2">
+    <inertial>
+      <origin
+        xyz="0.0201217834461761 -0.109696910419532 7.49655163817704E-08"
+        rpy="0 0 0" />
+      <mass
+        value="3.24792997883187" />
+      <inertia
+        ixx="0.0135245524302969"
+        ixy="2.73481130127729E-12"
+        ixz="-2.16703921738411E-09"
+        iyy="0.00976611745880299"
+        iyz="1.65934648845429E-09"
+        izz="0.0172740591714315" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_assm/meshes/motor_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_assm/meshes/motor_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_2"
+    type="revolute">
+    <origin
+      xyz="0.69 0 0.00053788"
+      rpy="-0.0048764 0.0027937 -1.3623E-05" />
+    <parent
+      link="connector_1" />
+    <child
+      link="motor_2" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-6.14"
+      upper="6.14"
+      effort="0.0"
+      velocity="3.2" />
+  </joint>
+  <link
+    name="connector_2">
+    <inertial>
+      <origin
+        xyz="-3.1784947935893E-07 0.332123883468186 1.88166395568255E-08"
+        rpy="0 0 0" />
+      <mass
+        value="4.32164128406196" />
+      <inertia
+        ixx="0.0533313806166958"
+        ixy="-1.17364634768036E-11"
+        ixz="7.80496640541187E-05"
+        iyy="0.00563517893849937"
+        iyz="-1.40368744696244E-10"
+        izz="0.0545463725985363" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_assm/meshes/connector_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_assm/meshes/connector_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="connection_2"
+    type="fixed">
+    <origin
+      xyz="0.12 -0.1097 0"
+      rpy="0 -0.061079 -1.5708" />
+    <parent
+      link="motor_2" />
+    <child
+      link="connector_2" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="motor_3">
+    <inertial>
+      <origin
+        xyz="-0.0923361653823989 -1.40477589338772E-07 7.06999671480635E-09"
+        rpy="0 0 0" />
+      <mass
+        value="1.45886497225481" />
+      <inertia
+        ixx="0.00273661793160698"
+        ixy="1.19740093785493E-11"
+        ixz="-1.14099280093902E-10"
+        iyy="0.00356775665909906"
+        iyz="7.26906155233847E-09"
+        izz="0.00479273523491974" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_assm/meshes/motor_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_assm/meshes/motor_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_3"
+    type="revolute">
+    <origin
+      xyz="-0.074848 0.57 0.004788"
+      rpy="-0.0076631 0.063883 0" />
+    <parent
+      link="connector_2" />
+    <child
+      link="motor_3" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-6.14"
+      upper="6.14"
+      effort="0.0"
+      velocity="3.2" />
+  </joint>
+  <link
+    name="motor_4">
+    <inertial>
+      <origin
+        xyz="-0.0932828541921538 -1.41611363940752E-07 7.60188700182907E-09"
+        rpy="0 0 0" />
+      <mass
+        value="1.4588650259024" />
+      <inertia
+        ixx="0.00273661790857383"
+        ixy="-2.18892737917E-12"
+        ixz="-1.09289693269471E-10"
+        iyy="0.00356775664445871"
+        iyz="7.29448633866116E-09"
+        izz="0.00479273519243366" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_assm/meshes/motor_4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_assm/meshes/motor_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_4"
+    type="revolute">
+    <origin
+      xyz="-0.12 0.074054 0"
+      rpy="-3.1401 0 -1.5708" />
+    <parent
+      link="motor_3" />
+    <child
+      link="motor_4" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="-6.14"
+      upper="6.14"
+      effort="0.0"
+      velocity="3.2" />
+  </joint>
+  <link
+    name="motor_5">
+    <inertial>
+      <origin
+        xyz="3.82845447843838E-08 0.0174482437078256 -1.54958864542198E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.209087747877943" />
+      <inertia
+        ixx="0.00014041702496199"
+        ixy="-1.2048459882536E-10"
+        ixz="1.91991859700716E-10"
+        iyy="0.000232747880649988"
+        iyz="4.87668242184021E-08"
+        izz="0.000140339315643002" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_assm/meshes/motor_5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+
+     <!-- Added cylinder description with color -->
+  <visual>
+    <geometry>
+      <cylinder length="0.001" radius="0.05"/>
+    </geometry>
+    <!-- Material for the cylinder -->
+    <material name="cylinder_material">
+      <color rgba="1.0 0.0 0.0 1.0"/> <!-- Adjust RGBA values as needed -->
+    </material>
+    <origin rpy="1.57 0 0" xyz="0 0.04 0"/> <!-- Adjust position as needed -->
+  </visual>
+
+
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_assm/meshes/motor_5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_5"
+    type="revolute">
+    <origin
+      xyz="-0.12095 0.075 0"
+      rpy="0 -1.5277 0" />
+    <parent
+      link="motor_4" />
+    <child
+      link="motor_5" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-6.14"
+      upper="6.14"
+      effort="0.0"
+      velocity="3.2" />
+  </joint>
+  
+  
+
+<!-- ROVER-->
+
+<link
+    name="rover_link">
+    <inertial>
+      <origin
+        xyz="-0.103318260836402 0.337174820008258 0.000199834843137995"
+        rpy="0 0 0" />
+      <mass
+        value="573.948623188988" />
+      <inertia
+        ixx="43.2833350834728"
+        ixy="-3.05703288624718"
+        ixz="0.0378529802323163"
+        iyy="130.884178689706"
+        iyz="-0.0135436274986689"
+        izz="125.088361453142" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_assm/meshes/rover_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_assm/meshes/rover_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="rear_axle">
+    <inertial>
+      <origin
+        xyz="0.000708783102626985 -1.90736315630602E-13 2.0961010704923E-13"
+        rpy="0 0 0" />
+      <mass
+        value="69.3421943492993" />
+      <inertia
+        ixx="2.43559666302255"
+        ixy="-3.53704390808948E-14"
+        ixz="-1.96383789221807E-13"
+        iyy="2.14854026998397"
+        iyz="1.52472468329577E-13"
+        izz="2.1485402699841" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_assm/meshes/rear_axle.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_assm/meshes/rear_axle.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rear_axle_joint"
+    type="continuous">
+    <origin
+      xyz="-0.45 0 0.08"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="rover_link" />
+    <child
+      link="rear_axle" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="right_front_steer">
+    <inertial>
+      <origin
+        xyz="0 0.0987183418958318 0.0712956744515366"
+        rpy="0 0 0" />
+      <mass
+        value="1.49471513985928" />
+      <inertia
+        ixx="0.0238179318734172"
+        ixy="3.63207727782644E-18"
+        ixz="-1.14383329197221E-17"
+        iyy="0.0124988941819121"
+        iyz="0.00732413688628523"
+        izz="0.0119916595044418" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_assm/meshes/right_front_steer.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_assm/meshes/right_front_steer.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_front_steer_joint"
+    type="continuous">
+    <origin
+      xyz="0.6 -0.25 0.05"
+      rpy="1.5708 0 0.06131" />
+    <parent
+      link="rover_link" />
+    <child
+      link="right_front_steer" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="right_front_wheel">
+    <inertial>
+      <origin
+        xyz="-0.18471755067684 -5.71287461781367E-12 3.35409477969506E-12"
+        rpy="0 0 0" />
+      <mass
+        value="33.1593933498922" />
+      <inertia
+        ixx="1.21693961849137"
+        ixy="-1.0153623818468E-11"
+        ixz="7.93193635773015E-12"
+        iyy="0.797444327502923"
+        iyz="-8.69664637612871E-13"
+        izz="0.79744432749925" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_assm/meshes/right_front_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_assm/meshes/right_front_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_front_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0 0.03 0.12022"
+      rpy="-1.5251 1.5708 -1.5759" />
+    <parent
+      link="right_front_steer" />
+    <child
+      link="right_front_wheel" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="left_front_steer">
+    <inertial>
+      <origin
+        xyz="2.22044604925031E-16 0.0987183418958317 0.0712956744515366"
+        rpy="0 0 0" />
+      <mass
+        value="1.49471513985928" />
+      <inertia
+        ixx="0.0238179318734172"
+        ixy="7.31836466427715E-18"
+        ixz="-1.05709711817337E-17"
+        iyy="0.0124988941819121"
+        iyz="0.00732413688628522"
+        izz="0.0119916595044418" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_assm/meshes/left_front_steer.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_assm/meshes/left_front_steer.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_front_steer_joint"
+    type="continuous">
+    <origin
+      xyz="0.6 0.25 0.05"
+      rpy="1.5708 0 3.0983" />
+    <parent
+      link="rover_link" />
+    <child
+      link="left_front_steer" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="left_front_wheel">
+    <inertial>
+      <origin
+        xyz="-0.1493710630554 -3.17523785042795E-14 4.88309392920883E-12"
+        rpy="0 0 0" />
+      <mass
+        value="33.1593933498605" />
+      <inertia
+        ixx="1.21693961849115"
+        ixy="9.01806407327399E-13"
+        ixz="9.63588930869008E-12"
+        iyy="0.797444327499953"
+        iyz="-5.80122159078017E-13"
+        izz="0.797444327501309" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_assm/meshes/left_front_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_assm/meshes/left_front_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_front_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0 0.03 0.15556"
+      rpy="1.0904 1.5708 -2.9361" />
+    <parent
+      link="left_front_steer" />
+    <child
+      link="left_front_wheel" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  
+  <!-- END ROVER-->
+
+
+ <ros2_control name="GazeboSystem" type="system">
+ <hardware>
+     <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+ </hardware>
+
+ # PositionControllers
+
+ <joint name="joint_1">
+     <command_interface name="position">
+         <param name="min">-6.28</param>
+         <param name="max">6.28</param>
+     </command_interface>
+     <state_interface name="position"/>
+     <state_interface name="velocity"/>
+ </joint>
+
+ <joint name="connection_1">
+     <command_interface name="position">
+         <param name="min">-6.28</param>
+         <param name="max">6.28</param>
+     </command_interface>
+     <state_interface name="position"/>
+     <state_interface name="velocity"/>
+ </joint>
+
+ <joint name="joint_2">
+     <command_interface name="position">
+         <param name="min">-6.28</param>
+         <param name="max">6.28</param>
+     </command_interface>
+     <state_interface name="position"/>
+     <state_interface name="velocity"/>
+ </joint>
+
+ <joint name="joint_3">
+     <command_interface name="position">
+         <param name="min">-6.28</param>
+         <param name="max">6.28</param>
+     </command_interface>
+     <state_interface name="position"/>
+     <state_interface name="velocity"/>
+ </joint>
+
+ <joint name="joint_4">
+     <command_interface name="position">
+         <param name="min">-6.28</param>
+         <param name="max">6.28</param>
+     </command_interface>
+     <state_interface name="position"/>
+     <state_interface name="velocity"/>
+ </joint>
+
+ <joint name="joint_5">
+     <command_interface name="position">
+         <param name="min">-6.28</param>
+         <param name="max">6.28</param>
+     </command_interface>
+     <state_interface name="position"/>
+     <state_interface name="velocity"/>
+ </joint>
+
+ # velocity controllers 
+
+
+
+ <joint name="joint_1">
+     <command_interface name="velocity">
+         <param name="min">-1000.0</param>
+         <param name="max">1000.0</param>
+     </command_interface>
+     <state_interface name="position"/>
+     <state_interface name="velocity"/>
+ </joint>
+
+
+
+ <joint name="connection_1">
+     <command_interface name="velocity">
+         <param name="min">-1000.0</param>
+         <param name="max">1000.0</param>
+     </command_interface>
+     <state_interface name="position"/>
+     <state_interface name="velocity"/>
+ </joint>
+
+
+
+ <joint name="joint_2">
+     <command_interface name="velocity">
+         <param name="min">-1000.0</param>
+         <param name="max">1000.0</param>
+     </command_interface>
+     <state_interface name="position"/>
+     <state_interface name="velocity"/>
+ </joint>
+
+
+
+ <joint name="joint_3">
+     <command_interface name="velocity">
+         <param name="min">-1000.0</param>
+         <param name="max">1000.0</param>
+     </command_interface>
+     <state_interface name="position"/>
+     <state_interface name="velocity"/>
+ </joint>
+
+
+ <joint name="joint_4">
+     <command_interface name="velocity">
+         <param name="min">-1000.0</param>
+         <param name="max">1000.0</param>
+     </command_interface>
+     <state_interface name="position"/>
+     <state_interface name="velocity"/>
+ </joint>
+
+  
+
+ <joint name="joint_5">
+     <command_interface name="velocity">
+         <param name="min">-1000.0</param>
+         <param name="max">1000.0</param>
+     </command_interface>
+     <state_interface name="position"/>
+     <state_interface name="velocity"/>
+ </joint>
+
+
+<!-- ROVER CTRLS -->
+
+ # Velocity Controllers
+
+ <joint name="rear_axle_joint">
+     <command_interface name="velocity">
+         <param name="min">-1000.0</param>
+         <param name="max">1000.0</param>
+     </command_interface>
+     <state_interface name="position"/>
+     <state_interface name="velocity"/>
+ </joint>
+
+
+ # Velocity Controllers
+
+ <joint name="left_front_wheel_joint">
+     <command_interface name="velocity">
+         <param name="min">-1000.0</param>
+         <param name="max">1000.0</param>
+     </command_interface>
+     <state_interface name="position"/>
+     <state_interface name="velocity"/>
+ </joint>
+
+ # Velocity Controllers
+
+ <joint name="right_front_wheel_joint">
+     <command_interface name="velocity">
+         <param name="min">-1000.0</param>
+         <param name="max">1000.0</param>
+     </command_interface>
+     <state_interface name="position"/>
+     <state_interface name="velocity"/>
+ </joint>
+
+
+
+
+# Position Controller
+ <joint name="left_front_steer_joint">
+     <command_interface name="position">
+         <param name="min">-3.14</param>
+         <param name="max">3.14</param>
+     </command_interface>
+     <state_interface name="position"/>
+     <state_interface name="velocity"/>
+ </joint>
+
+
+
+# Position Controller
+ <joint name="right_front_steer_joint">
+     <command_interface name="position">
+         <param name="min">-3.14</param>
+         <param name="max">3.14</param>
+     </command_interface>
+     <state_interface name="position"/>
+     <state_interface name="velocity"/>
+ </joint>
+
+
+
+
+ </ros2_control>
+  
+ 
+  <gazebo>
+    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+        <parameters>$(find arm_assm)/config/control.yaml</parameters>
+    </plugin>
+</gazebo>
+  
+  
+  
+  <!--  VACUUM GRIPPER -->
+
+
+  
+  <gazebo>
+  <plugin name='vacuum_gripper' filename='libgazebo_ros_vacuum_gripper.so'>
+
+    <ros>
+
+
+      <namespace>/vacuum_gripper</namespace>
+
+      <!-- Remapping service and topic names -->
+      <remapping>switch:=custom_switch</remapping>
+      <remapping>grasping:=custom_grasping</remapping>
+    </ros>
+
+    <!-- Link associated with gripper -->
+    <link_name>motor_5</link_name>
+
+    <!-- Max distance to attract entities -->
+    <max_distance>10.0</max_distance>
+
+    <!-- List of entities to be not attracted by the gripper -->
+    <fixed>ground_plane</fixed>
+    <fixed>wall</fixed>
+     <fixed>bowl</fixed>
+
+  </plugin>
+</gazebo>
+  
+  
+  
+  <xacro:macro name="tyre_color">
+    <visual>
+    <material>
+        <ambient>0.1 0.1 0.1 1</ambient>
+        <diffuse>0.1 0.1 0.1 1</diffuse>
+        <specular>0.1 0.1 0.1 1</specular>
+        <emissive>0 0 0 0</emissive>
+    </material>
+    </visual>
+</xacro:macro>
+  
+  
+  <xacro:macro name="axle_color">
+    <visual>
+    <material>
+        <ambient>0.3 0.3 0.3 1</ambient>
+        <diffuse>0.3 0.3 0.3 1</diffuse>
+        <specular>0.3 0.3 0.3 1</specular>
+        <emissive>0 0 0 0</emissive>
+    </material>
+    </visual>
+</xacro:macro>
+
+
+    <xacro:macro name="body_color">
+    <visual>
+    <material>
+        <ambient>0.8 0.56 0.1 1</ambient>
+        <diffuse>0.8 0.56 0.1 1</diffuse>
+        <specular>0.1 0.1 0.1 1</specular>
+        <emissive>0 0 0 0</emissive>
+    </material>
+    </visual>
+</xacro:macro>
+
+    <xacro:macro name="arm_color_light">
+    <visual>
+    <material>
+        <ambient> 0.5 0.5 0.5 1</ambient>
+        <diffuse> 0.5 0.5 0.5 1</diffuse>
+        <specular>0.1 0.1 0.1 1</specular>
+        <emissive>0 0 0 0</emissive>
+    </material>
+    </visual>
+</xacro:macro>
+  
+
+    <xacro:macro name="arm_color_dark">
+    <visual>
+    <material>
+        <ambient>0.2 0.2 0.2 1</ambient>
+        <diffuse>0.2 0.2 0.2 1</diffuse>
+        <specular>0.1 0.1 0.1 1</specular>
+        <emissive>0 0 0 0</emissive>
+    </material>
+    </visual>
+</xacro:macro>
+
+
+  <gazebo reference="base_link">
+    <xacro:axle_color />
+</gazebo>
+  
+    <gazebo reference="right_front_wheel">
+    <xacro:tyre_color />
+</gazebo>
+
+  <gazebo reference="left_front_wheel">
+    <xacro:tyre_color />
+</gazebo>
+
+ 
+  <gazebo reference="rear_axle">
+    <xacro:tyre_color />
+</gazebo> 
+
+    <gazebo reference="rover_link">
+    <xacro:body_color />
+</gazebo> 
+        <gazebo reference="left_front_steer">
+    <xacro:axle_color />
+</gazebo> 
+        <gazebo reference="right_front_steer">
+    <xacro:axle_color />
+</gazebo> 
+
+
+        <gazebo reference="motor_1">
+    <xacro:arm_color_dark />
+</gazebo> 
+
+
+        <gazebo reference="motor_2">
+    <xacro:arm_color_dark />
+</gazebo> 
+
+
+        <gazebo reference="motor_3">
+    <xacro:arm_color_dark />
+</gazebo> 
+
+
+        <gazebo reference="motor_4">
+    <xacro:arm_color_light />
+</gazebo> 
+
+
+        <gazebo reference="motor_5">
+    <xacro:arm_color_dark/>
+</gazebo> 
+
+        <gazebo reference="connector_1">
+    <xacro:arm_color_light />
+</gazebo> 
+
+        <gazebo reference="connector_2">
+    <xacro:arm_color_light />
+</gazebo> 
+</robot>
