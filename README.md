@@ -27,7 +27,8 @@ The system consists of a mobile rover with a manipulator arm.
   - Joints: All joints are of revolute type
 
 ## CAD Model
-![cad](https://github.com/piyush-g0enka/Mars-Rover/blob/main/cad-render.png)
+![cad](https://github.com/piyush-g0enka/Mars-Rover/blob/main/caed-render.png)
+
 The CAD model includes a rover with a manipulator arm. The rover is rear wheel-driven, and the front wheels are individually steerable. A tool set holder at the rear can hold multiple end-effectors. The demonstration of end-effector changes is considered as future work.
 
 ## Forward Kinematics
