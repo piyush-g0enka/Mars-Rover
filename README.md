@@ -4,11 +4,12 @@
 
 This project focuses on implementing forward and inverse kinematics on a teleoperable mobile rover with a manipulator arm attached. The implementation is validated using Sympy and Gazebo simulation.
 
+![Gif](https://github.com/piyush-g0enka/Mars-Rover/blob/main/mars-rover-gif.gif)
 ## Application
 
 The robot is a tele-operable rover with a multi-purpose arm, equipped with a toolbox of end-effectors. For this project, a vacuum gripper is utilized as the end effector to demonstrate forward and inverse kinematics. Other end-effector tools could be implemented in the future based on the robot's application requirements.
 
-![Gif](https://github.com/piyush-g0enka/Mars-Rover/blob/main/mars-rover-gif.gif)
+
 
 ## Robot Type
 
