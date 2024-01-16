@@ -1,4 +1,4 @@
-## Steps to run ROS Package:
+## Steps to run ROS2 Package:
 
 1. Place our ROS2 galactic package (`arm_assm`) in your colcon workspace.
 
