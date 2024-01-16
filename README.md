@@ -1,13 +1,8 @@
-# Mars-Rover
-
-Sure, here is the text converted into a raw Markdown (.md) file:
-
-```markdown
-# README
+# README - Mars Rover
 
 ## Steps to run ROS Package:
 
-1. Place our ROS2 package (`arm_assm`) in your colcon workspace.
+1. Place our ROS2 galactic package (`arm_assm`) in your colcon workspace.
 
 2. Run the `debug.launch.py` launch file. This will launch gazebo world with our robot, table, and box.
 
@@ -63,4 +58,4 @@ V   | Vacuum Gripper OFF
 ESC | Quit Teleop
 
 Note: In our teleop node, we are controlling the end effector position using the keys. In the background, inverse kinematics is used to compute the required joint angles to move the robot in the required trajectory. We are NOT manipulating the arm’s joints directly. Inverse Kinematics is doing it for us.
-```
+
